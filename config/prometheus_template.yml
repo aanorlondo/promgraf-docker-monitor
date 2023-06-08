@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["${DOCKER_HOSTNAME}:9090"]
+
+  - job_name: "docker"
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["${DOCKER_HOSTNAME}:9323"]
+      # PREREQUISITES: your docker host should be configured with the following values :
+      # {
+      #   "metrics-addr" : "127.0.0.1:9323",
+      #   "experimental" : true
+      # }
