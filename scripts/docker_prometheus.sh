@@ -9,7 +9,7 @@ docker rmi -f negan/prometheus:local
 
 # build
 docker build -t negan/prometheus:local -f ../Dockerfile.prometheus ../
-# docker push negan/prometheus:local
+docker push negan/prometheus:local
 
 # run
 docker run \
